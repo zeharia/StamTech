@@ -42,7 +42,7 @@ function postPost() {
                 content: content,
                 price: price,
                 imageUrl: imageUrl,
-                author: "author",
+                author: localStorage.getItem(userData.name),
                 date: new Date().toISOString()
             })
         })

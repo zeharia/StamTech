@@ -13,7 +13,7 @@ document.querySelector(".btn").addEventListener("click", function (event) {
 
     if (usernameInput.toLowerCase() === savedUser.name.toLowerCase() && passwordInput === savedUser.password) {
         alert("Login successful! Welcome, " + savedUser.name);
-        window.location.href = "index.html";
+        window.location.href = window.location.origin + "/StamTech/index.html";
     } else {
         alert("User not found! Please check your details.");
     }
