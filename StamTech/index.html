@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog spa</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stam Tech</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/js-image-zoom@0.7.0/js-image-zoom.js" type="application/javascript"></script>
 </head>
 
 <body>
-    <nav>
-        <a href="#home" id="home">Sofer Blog</a>
-        <a href="../Login/login/log.html" id="Log-in">Log-in</a>
-    </nav>
-    <div id="home-container"></div>
-    <div id="post-container"></div>
-    <button class="add-post-btn" onclick="location.href='#addPost'">+</button>
-    <script src="js/router.js"></script>
-    <script src="js/api.js"></script>
+  <nav>
+    <a href="#home" id="home">Sofer Blog</a>
+    <a href="../Login/login/log.html" id="Log-in">Log-in</a>
+    <button id="cart-btn" onclick="location.href='#cart'">🛒</button>
+  </nav>
+
+  <div id="app"></div>
+  <div id="sidebar"></div>
+  <button class="add-post-btn" id="addBtn" onclick="location.href='#addPost'">+</button>
+  
+  <script src="js/router.js"></script>
+  <script src="js/api.js"></script>
+  </script>
 </body>
 
 </html>

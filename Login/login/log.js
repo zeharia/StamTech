@@ -1,3 +1,4 @@
+const addPostBtn=document.getElementById('addBtn');
 document.querySelector(".btn").addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -14,6 +15,7 @@ document.querySelector(".btn").addEventListener("click", function (event) {
     if (usernameInput.toLowerCase() === savedUser.name.toLowerCase() && passwordInput === savedUser.password) {
         alert("Login successful! Welcome, " + savedUser.name);
         window.location.href = window.location.origin + "/StamTech/index.html";
+        addPostBtn.style.display='block';
     } else {
         alert("User not found! Please check your details.");
     }
