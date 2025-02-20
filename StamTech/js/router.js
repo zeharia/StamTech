@@ -193,21 +193,21 @@ const routers = {
       <input type="radio" name="size" value="25">25
     </div>
     <label for="price">מחיר</label>
-    <input type="range" id="price" min="0" max="10000000" step="10">
-    <span id="priceValue">500  NIS</span>
+    <input type="range" id="price" min="0" max="150000" step="10">
+    <span id="priceValue">1000</span>
   </div>
   `
     }
 }
 routers.cart = {
-    title: 'Panier',
+    title: 'Cart',
     content: `
         <div class="cart-page">
-            <h1 style=color:brown>Cart</h1>
+            <h1 style=color:brown>סל</h1>
             <div id="cart-container" class="cart-container">
             </div>
             <div class="cart-actions">
-                <button onclick="clearCart()" class="clear-cart-btn">empty cart</button>
+                <button onclick="clearCart()" class="clear-cart-btn">סל ריק</button>
             </div>
         </div>
     `
@@ -260,6 +260,5 @@ function updateRoute() {
     }, 0);
 
 }
-
 window.addEventListener('hashchange', updateRoute);
 window.addEventListener('load', updateRoute);
