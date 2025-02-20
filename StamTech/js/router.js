@@ -10,15 +10,11 @@ const routers = {
                 <img src="https://i.ytimg.com/vi/jlXbWiakMc0/maxresdefault.jpg">
             </div>
             <div id="text-content">
-                <p>
-                    Are you a writer or scribe looking to showcase your work and attract potential clients?
-                    Our blog is designed just for you!
-                    <br><br>
-                    At Sofer Blog, we offer a space where talented writers can present their writing skills,
-                    share their best pieces, and connect with businesses in need of professional writing services.
-                    <br><br>
-                    Join our community, publish your work, and let your words open new opportunities!
+                 <p>
+                סתמטאק הוא אתר ייחודי המציע פלטפורמה המפגישה בין סופרי סתם מקצועיים לבין לקוחות המעוניינים בכתיבה מותאמת אישית. באתר, סופרי סתם מנוסים מעלים את הכתבים שלהם, ובכך מאפשרים ללקוחות לבחור מתוך מבחר מגוון של כתבים את הכתיבה המתאימה ביותר לצרכים האישיים שלהם.
                 </p>
+                <p>בין אם מדובר בכתיבה של ספר תורה תפילין מזוזות מגילת אסתר או כל כתב קודש - סתמטאק מציע פתרון פשוט ונגיש למציאת הסופר המתאים ביותר. האתר מציע חוויית משתמש קלה וידידותית, בה הלקוחות יכולים לקרוא ביקורות על הסופרים, לראות דוגמאות כתיבה, ולהזמין את השירות המתאים להם.</p>
+                <p>
             </div>
         </div>
         <div class="home-post">
@@ -234,7 +230,7 @@ function updateRoute() {
         sidebarDiv.innerHTML = routers.sidebar.content;
         fetchProductsByType(hash);
     } else {
-        sidebarDiv.innerHTML = ''; 
+        sidebarDiv.innerHTML = '';
     }
 
     if (hash === 'addPost') {
