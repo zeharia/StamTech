@@ -11,91 +11,237 @@ const routers = {
             </div>
             <div id="text-content">
                 <p>
-                    Are you a writer or scribe looking to showcase your work and attract potential clients? 
-                    Our blog is designed just for you! 
+                    Are you a writer or scribe looking to showcase your work and attract potential clients?
+                    Our blog is designed just for you!
                     <br><br>
-                    At Sofer Blog, we offer a space where talented writers can present their writing skills, 
+                    At Sofer Blog, we offer a space where talented writers can present their writing skills,
                     share their best pieces, and connect with businesses in need of professional writing services.
                     <br><br>
                     Join our community, publish your work, and let your words open new opportunities!
                 </p>
             </div>
         </div>
-         <div class="home-post">
-        <a href="torah.html" class="card">
-            <div class="overlay">Sefer Torah</div>
-            <img src="https://luvaton-13064.kxcdn.com/2279-home_default/the-eden-garden-torah-case.jpg" alt="torah">
-        </a>
-        <a href="mezzouza.html" class="card">
-            <div class="overlay">Mezzouza</div>
-            <img src="https://luvaton-13064.kxcdn.com/2109-home_default/habonim-mezuzah-ocean-colors.jpg" alt="mezzouza">
-        </a>
-        <a href="meguila.html" class="card">
-            <div class="overlay">Meguila</div>
-            <img src="https://www.mountsinai.co.il/wp-content/uploads/48248.jpg" alt="meguila">
-        </a>
-        <a href="pitumKetoret.html" class="card">
-            <div class="overlay">Pitum haketoret</div>
-            <img src="https://sefertorah.net/wp-content/uploads/2023/03/2759298003-1.jpg" alt="pitumKetoret">
-        </a>
-        <a href="tefilin.html" class="card">
-            <div class="overlay">Tephilin</div>
-            <img src="https://pluspng.com/img-png/tefillin-png--849.jpg" alt="tefilin">
-        </a>
-    </div>
+        <div class="home-post">
+            <a href="#torah" class="card" data-typewrite="sefarade" data-size="17" data-price="500">
+                <div class="overlay">Sefer Torah</div>
+                <img src="https://talit4you.com/4543-large_default/sefer-torah-boitier-sefarade.jpg" alt="torah">
+            </a>
+            <a href="#mezuzah" class="card" data-typewrite="ari" data-size="12" data-price="300">
+                <div class="overlay">Mezzouza</div>
+                <img src="https://silverstore.fr/1855-superlarge_default/boitier-mezouza.jpg" alt="mezzouza">
+            </a>
+            <a href="#meguila" class="card" data-typewrite="habbad" data-size="21" data-price="400">
+                <div class="overlay">Meguila</div>
+                <img src="https://silverstore.fr/1372-medium_default_2x/boitier-meguila.jpg" alt="meguila">
+            </a>
+            <a href="#ketoret" class="card" data-typewrite="achkenaze" data-size="15" data-price="250">
+                <div class="overlay">Pitum haketoret</div>
+                <img src="https://www.adlers.fr/wp-content/uploads/2021/01/Packshot-Adlers-8-1-316x395.png" alt="pitumKetoret">
+            </a>
+            <a href="#tefillin" class="card" data-typewrite="sefarade" data-size="20" data-price="600">
+                <div class="overlay">Tephilin</div>
+                <img src="https://www.adlers.fr/wp-content/uploads/2021/01/Packshot-Adlers-12-1-316x395.png" alt="tefilin">
+            </a>
+        </div>
+        `
+    },
+    torah: {
+        title: 'Sefer Torah',
+        content: `
+        <div class="secondPage">
+          <h1>Sefer Torah</h1>
+          <div id="torah-container"></div>
+          <div class="sidebar"></div>
+          </div>
+        `
+    },
+    mezuzah: {
+        title: 'Mezuzah',
+        content: `
+        <div class="secondPage">
+          <h1>Mezuzah</h1>
+          <div id="mezuzah-container"></div>
+          <div class="sidebar"></div>
+     </div>
+        `
+    },
+    tefillin: {
+        title: 'Tefillin',
+        content: `
+        <div class="secondPage">
+          <h1>Tefillin</h1>
+          <div id="tefillin-container"></div>
+          <div class="sidebar"></div>
+             </div>
+        `
+    },
+    ketoret: {
+        title: 'Pitum Ketoret',
+        content: `
+        <div class="secondPage">
+          <h1>Pitum Ketoret</h1>
+          <div id="ketoret-container"></div>
+          <div class="sidebar"></div>
+             </div>
+        `
+    },
+    meguila: {
+        title: 'Meguila',
+        content: `
+        <div class="secondPage">
+          <h1>Meguila</h1>
+          <div id="meguila-container"></div>
+          <div class="sidebar"></div>
+          </div>
         `
     },
     addPost: {
         title: 'Add Post',
         container: 'post-container',
         content: `
-        <h1>Add your Post here!</h1>
-        <form id="form">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-            
-            <label for="price">Price ($)</label>
-            <input type="number" id="price" name="price" min="0" step="0.01" required>
-            
-            <label for="imageUrl">Image URL</label>
-            <input type="url" id="imageUrl" name="imageUrl" required>
-            
-            <label for="content">Content</label>
-            <textarea id="content" name="content" required></textarea>
-            
-            <button type="submit">Publish</button>
-        </form>
+        <form id="productForm" onsubmit="submitForm(event)">
+        <h1>מוצר</h1>
+
+        <div id="typeWriteDiv">
+            <label for="typewrite">סוג הכתב</label>
+            <select name="typewrite" id="typewrite">
+                <option value="ari">ארי</option>
+                <option value="achkenaze">בית יוסף</option>
+                <option value="sefarade">ספרדי</option>
+                <option value="habbad">חבד</option>
+            </select>
+        </div>
+
+        <div id="type">
+            <label for="type">סוג מוצרים</label>
+            <select id="selection" name="type" onchange="showSubSelection()">
+                <option value="mezuzah">מזוזה</option>
+                <option value="torah">ספר תורה</option>
+                <option value="tefillin">תפילין</option>
+                <option value="ketoret">פיטום הקטורת</option>
+                <option value="meguila">מגילה</option>
+            </select>
+        </div>
+
+        <div id="mezzouzaSizeDiv" class="size" style="display: none;">
+            <label for="mezzouzaSize size">גודל הכתב</label>
+            <select id="mezzouzaSize" name="mezzouzaSize">
+                <option value="12">12</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+
+        <div id="meguilaSizeDiv" class="size" style="display: none;">
+            <label for="meguilaSize">גודל הכתב</label>
+            <select id="meguilaSize" name="meguilaSize">
+                <option value="12">11</option>
+                <option value="15">21</option>
+                <option value="20">28</option>
+            </select>
+        </div>
+
+        <div id="seferTorahSizeDiv" class="size" style="display: none;">
+            <label for="seferTorahSize">גודל הכתב</label>
+            <select id="seferTorahSize" name="seferTorahSize">
+                <option value="17">17</option>
+                <option value="36">36</option>
+                <option value="52">52</option>
+                <option value="56">56</option>
+            </select>
+        </div>
+
+        <div id="pitoumDiv" class="size" style="display: none;">
+            <label for="pitoumSize">גודל הכתב</label>
+            <select id="pitoumSize" name="pitoumSize">
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+
+        <div id="tefilinDiv" style="display: none;">
+            <label for="tefilinDiv">איזה שיטה</label>
+            <select id="tefilinDiv" name="tefilinDiv">
+                <option value="rachi">רשי</option>
+                <option value="rabenouTam">רבינו תם</option>
+            </select>
+        </div>
+
+        <div id="imageDiv">
+            <label for="image">העלאת תמונה</label>
+            <input type="file" id="image" name="image">
+        </div>
+
+        <div id="priceDiv">
+            <input type="text" placeholder="מחיר">
+        </div>
+        <input type="submit" value="שלח">
+    </form>
         `
+    },
+    sidebar: {
+        container: 'sidebar',
+        content: `
+                  <div class="sideFilter" dir="rtl">
+           <div class="typeWriter">
+              <input type="radio" name="category" value="ארי"> ארי
+      <input type="radio" name="category" value="בית יוסף"> בית יוסף
+      <input type="radio" name="category" value="ספרד"> ספרד
+      <input type="radio" name="category" value="חבד"> חבד
+    </div>
+    <div class="size">
+      <input type="radio" name="size" value="12">12
+      <input type="radio" name="size" value="15">15
+      <input type="radio" name="size" value="20">20
+      <input type="radio" name="size" value="25">25
+    </div>
+    <label for="price">מחיר</label>
+    <input type="range" id="price" min="0" max="1000" step="10">
+  </div>`
     }
 }
+routers.cart = {
+    title: 'Panier',
+    content: `
+        <div class="cart-page">
+            <h1 style=color:brown>Cart</h1>
+            <div id="cart-container" class="cart-container">
+            </div>
+            <div class="cart-actions">
+                <button onclick="clearCart()" class="clear-cart-btn">empty cart</button>
+            </div>
+        </div>
+    `
+};
 
 function updateRoute() {
     const hash = window.location.hash.substring(1);
     const route = routers[hash] || routers.home;
+    const sidebarDiv = document.getElementById("sidebar");
 
-    document.getElementById('home-container').innerHTML = '';
-    document.getElementById('post-container').innerHTML = '';
+    document.getElementById('app').innerHTML = route.content;
+    document.title = route.title;
 
-    if (route) {
-        document.title = route.title;
+    if (hash === 'cart') {
+        setTimeout(() => {
+            displayCart();
+        }, 0);
+    }
 
-        const container = document.getElementById(route.container);
-        if (container) {
-            container.innerHTML = route.content;
-        }
-
-        if (hash === 'home') {
-            getPost();
-        } else if (hash === 'addPost') {
-            postPost();
-        }
+    if (hash === 'torah' || hash === 'mezuzah' || hash === 'tefillin' || hash === 'ketoret' || hash === 'meguila') {
+        sidebarDiv.innerHTML = routers.sidebar.content;
+        fetchProductsByType(hash);
     } else {
-        document.getElementById('home-container').innerHTML = `
-        <h1>Error 404</h1>
-        <p>Pages Not Found</p>
-        `;
+        sidebarDiv.innerHTML = ''; 
+    }
+
+    if (hash === 'addPost') {
+        setTimeout(() => {
+            showSubSelection();
+        }, 0);
     }
 }
-
 window.addEventListener('hashchange', updateRoute);
-window.addEventListener('load', updateRoute)
+window.addEventListener('load', updateRoute);
