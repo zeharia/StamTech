@@ -87,7 +87,7 @@ function displayProduct(product, container = null) {
         ${product.image ? `<div class="image-zoom-container" id="${zoomContainerId}">
             <img src="data:image/jpeg;base64,${product.image}" alt="${getHebrewProductType(product.productType)}">
         </div>` : ''}
-        <button onclick='addToCart(${JSON.stringify(product)})'>🛒 Ajouter au panier</button>
+        <button onclick='addToCart(${JSON.stringify(product)})'>🛒 הוספה לסל</button>
     `;
     container.appendChild(productCard);
 
@@ -177,7 +177,7 @@ function addToCart(product) {
     
     localStorage.setItem('cart', JSON.stringify(cart));
     
-    alert('Produit ajouté au panier !');
+    alert('הוסף לסל !');
     updateCartCount();
 }
 
@@ -194,7 +194,7 @@ function displayCart() {
         cartContainer.innerHTML = '';
 
         if (cart.length === 0) {
-            cartContainer.innerHTML = '<p>cart Empty</p>';
+            cartContainer.innerHTML = '<p>סל ריק</p>';
             return;
         }
 
@@ -213,7 +213,7 @@ function displayCart() {
                     <p>מחיר: ₪${product.price}</p>
                     ${product.userName ? `<p>מוכר: ${product.userName}</p>` : ''}
                 </div>
-                <button onclick="removeFromCart(${index})" class="remove-btn">❌ Supprimer</button>
+                <button onclick="removeFromCart(${index})" class="remove-btn">❌ הסר מהסל</button>
             `;
             cartContainer.appendChild(item);
         });
@@ -221,8 +221,8 @@ function displayCart() {
         const totalElement = document.createElement('div');
         totalElement.className = 'cart-total';
         totalElement.innerHTML = `
-            <h3>Total: ₪${total.toFixed(2)}</h3>
-            <button class="checkout-btn" onclick="showPaymentForm()">Valider ma commande</button>
+            <h3>סה"כ: ₪${total.toFixed(2)}</h3>
+            <button class="checkout-btn" onclick="showPaymentForm()">אישור הזמנה</button>
         `;
         cartContainer.appendChild(totalElement);
     }, 100);
@@ -233,14 +233,14 @@ function showPaymentForm() {
     const form = document.createElement('form');
     form.className = 'payment-form';
     form.innerHTML = `
-        <h3>Informations de paiement</h3>
-        <label>Numéro de carte :</label>
+        <h3>תשלום</h3>
+        <label>מספר כרטיס :</label>
         <input type="text" id="card-number" required>
-        <label>Date d'expiration :</label>
+        <label>תוקף :</label>
         <input type="text" id="expiry-date" required>
         <label>CVV :</label>
         <input type="text" id="cvv" required>
-        <button type="button" onclick="validateOrder()">Payer</button>
+        <button type="button" onclick="validateOrder()">תשלום</button>
     `;
     cartContainer.appendChild(form);
 }
@@ -307,7 +307,7 @@ const cartRoute = {
     title: 'Panier',
     content: `
         <div class="cart-page">
-            <h1>Mon Panier</h1>
+            <h1>סל שלי</h1>
             <div id="cart-container"></div>
         </div>
     `
