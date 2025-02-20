@@ -4,43 +4,41 @@ const routers = {
         container: 'home-container',
         content: `
         <img src="https://svbtleusercontent.com/vea1jhjjxbow.jpeg">
-        <div class="home-text">Welcome to Sofer Blog</div>
+        <div class="home-text">ברוכים הבאים לסתמטאק</div>
         <div id="text-container">
             <div id="img-text">
                 <img src="https://i.ytimg.com/vi/jlXbWiakMc0/maxresdefault.jpg">
             </div>
             <div id="text-content">
+                 <p>
+                סתמטאק הוא אתר ייחודי המציע פלטפורמה המפגישה בין סופרי סתם מקצועיים לבין לקוחות המעוניינים בכתיבה מותאמת אישית. באתר, סופרי סתם מנוסים מעלים את הכתבים שלהם, ובכך מאפשרים ללקוחות לבחור מתוך מבחר מגוון של כתבים את הכתיבה המתאימה ביותר לצרכים האישיים שלהם.
+                </p>
+                <p>בין אם מדובר בכתיבה של ספר תורה תפילין מזוזות מגילת אסתר או כל כתב קודש - סתמטאק מציע פתרון פשוט ונגיש למציאת הסופר המתאים ביותר. האתר מציע חוויית משתמש קלה וידידותית, בה הלקוחות יכולים לקרוא ביקורות על הסופרים, לראות דוגמאות כתיבה, ולהזמין את השירות המתאים להם.</p>
                 <p>
-                    Are you a writer or scribe looking to showcase your work and attract potential clients? 
-                    Our blog is designed just for you! 
-                    <br><br>
-                    At Sofer Blog, we offer a space where talented writers can present their writing skills, 
-                    share their best pieces, and connect with businesses in need of professional writing services.
-                    <br><br>
-                    Join our community, publish your work, and let your words open new opportunities!
+                האתר מהווה גשר בין סופרי סתם מוכשרים לבין הציבור, תוך שמירה על מקצועיות, אמינות וסטנדרטים גבוהים של איכות. 
                 </p>
             </div>
         </div>
          <div class="home-post">
         <a href="torah.html" class="card">
             <div class="overlay">Sefer Torah</div>
-            <img src="https://luvaton-13064.kxcdn.com/2279-home_default/the-eden-garden-torah-case.jpg" alt="torah">
+            <img src="https://luvaton-13064.kxcdn.com/2279-home_default/the-eden-garden-torah-case.jpg" alt="ספרי תורה">
         </a>
         <a href="mezzouza.html" class="card">
             <div class="overlay">Mezzouza</div>
-            <img src="https://luvaton-13064.kxcdn.com/2109-home_default/habonim-mezuzah-ocean-colors.jpg" alt="mezzouza">
+            <img src="https://luvaton-13064.kxcdn.com/2109-home_default/habonim-mezuzah-ocean-colors.jpg" alt="מזוזות">
         </a>
         <a href="meguila.html" class="card">
             <div class="overlay">Meguila</div>
-            <img src="https://www.mountsinai.co.il/wp-content/uploads/48248.jpg" alt="meguila">
+            <img src="https://www.mountsinai.co.il/wp-content/uploads/48248.jpg" alt="מגילות אסתר">
         </a>
         <a href="pitumKetoret.html" class="card">
             <div class="overlay">Pitum haketoret</div>
-            <img src="https://sefertorah.net/wp-content/uploads/2023/03/2759298003-1.jpg" alt="pitumKetoret">
+            <img src="https://sefertorah.net/wp-content/uploads/2023/03/2759298003-1.jpg" alt="פיטום הקטורת">
         </a>
         <a href="tefilin.html" class="card">
             <div class="overlay">Tephilin</div>
-            <img src="https://pluspng.com/img-png/tefillin-png--849.jpg" alt="tefilin">
+            <img src="https://pluspng.com/img-png/tefillin-png--849.jpg" alt="תפילין">
         </a>
     </div>
         `
