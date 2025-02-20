@@ -4,7 +4,7 @@ const routers = {
         container: 'home-container',
         content: `
         <img src="https://svbtleusercontent.com/vea1jhjjxbow.jpeg">
-        <div class="home-text">Welcome to Sofer Blog</div>
+        <div class="home-text">ברוכים הבאים לסתמטאק</div>
         <div id="text-container">
             <div id="img-text">
                 <img src="https://i.ytimg.com/vi/jlXbWiakMc0/maxresdefault.jpg">
@@ -14,8 +14,7 @@ const routers = {
                 סתמטאק הוא אתר ייחודי המציע פלטפורמה המפגישה בין סופרי סתם מקצועיים לבין לקוחות המעוניינים בכתיבה מותאמת אישית. באתר, סופרי סתם מנוסים מעלים את הכתבים שלהם, ובכך מאפשרים ללקוחות לבחור מתוך מבחר מגוון של כתבים את הכתיבה המתאימה ביותר לצרכים האישיים שלהם.
                 </p>
                 <p>בין אם מדובר בכתיבה של ספר תורה תפילין מזוזות מגילת אסתר או כל כתב קודש - סתמטאק מציע פתרון פשוט ונגיש למציאת הסופר המתאים ביותר. האתר מציע חוויית משתמש קלה וידידותית, בה הלקוחות יכולים לקרוא ביקורות על הסופרים, לראות דוגמאות כתיבה, ולהזמין את השירות המתאים להם.</p>
-                <p>
-            </div>
+                </div>
         </div>
         <div class="home-post">
             <a href="#torah" class="card" data-typewrite="sefarade" data-size="17" data-price="500">
