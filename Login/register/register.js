@@ -16,5 +16,5 @@
         localStorage.setItem("user", JSON.stringify(userData));
 
         alert("Registration successful!");
-        window.location.href = "log.html"; 
+        window.location.href = "../login/log.html";
     });

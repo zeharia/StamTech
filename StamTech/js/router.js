@@ -18,23 +18,23 @@ const routers = {
         </div>
         <div class="home-post">
             <a href="#torah" class="card" data-typewrite="sefarade" data-size="17" data-price="500">
-                <div class="overlay">Sefer Torah</div>
+                <div class="overlay">ספר תורה</div>
                 <img src="https://talit4you.com/4543-large_default/sefer-torah-boitier-sefarade.jpg" alt="torah">
             </a>
             <a href="#mezuzah" class="card" data-typewrite="ari" data-size="12" data-price="300">
-                <div class="overlay">Mezzouza</div>
+                <div class="overlay">מזוזה</div>
                 <img src="https://silverstore.fr/1855-superlarge_default/boitier-mezouza.jpg" alt="mezzouza">
             </a>
             <a href="#meguila" class="card" data-typewrite="habbad" data-size="21" data-price="400">
-                <div class="overlay">Meguila</div>
+                <div class="overlay">מגילה</div>
                 <img src="https://silverstore.fr/1372-medium_default_2x/boitier-meguila.jpg" alt="meguila">
             </a>
             <a href="#ketoret" class="card" data-typewrite="achkenaze" data-size="15" data-price="250">
-                <div class="overlay">Pitum haketoret</div>
+                <div class="overlay"> פיטום הקטורת</div>
                 <img src="https://www.adlers.fr/wp-content/uploads/2021/01/Packshot-Adlers-8-1-316x395.png" alt="pitumKetoret">
             </a>
             <a href="#tefillin" class="card" data-typewrite="sefarade" data-size="20" data-price="600">
-                <div class="overlay">Tephilin</div>
+                <div class="overlay">תפילון</div>
                 <img src="https://www.adlers.fr/wp-content/uploads/2021/01/Packshot-Adlers-12-1-316x395.png" alt="tefilin">
             </a>
         </div>
@@ -156,13 +156,13 @@ const routers = {
             </select>
         </div>
 
-        <div id="tefilinDiv" style="display: none;">
-            <label for="tefilinDiv">איזה שיטה</label>
-            <select id="tefilinDiv" name="tefilinDiv">
-                <option value="rachi">רשי</option>
-                <option value="rabenouTam">רבינו תם</option>
-            </select>
-        </div>
+        <div id="tefilinDiv" class="size" style="display: none;">
+    <label for="tefilinType">איזה שיטה</label>
+    <select id="tefilinType" name="tefilinType">
+        <option value="rachi">רשי</option>
+        <option value="rabenouTam">רבינו תם</option>
+    </select>
+</div>
 
         <div id="imageDiv">
             <label for="image">העלאת תמונה</label>
@@ -183,7 +183,7 @@ const routers = {
            <div class="typeWriter">
               <input type="radio" name="category" value="ארי"> ארי
       <input type="radio" name="category" value="בית יוסף"> בית יוסף
-      <input type="radio" name="category" value="ספרד"> ספרד
+      <input type="radio" name="category" value="ספרדי"> ספרדי
       <input type="radio" name="category" value="חבד"> חבד
     </div>
     <div class="size">
@@ -193,8 +193,10 @@ const routers = {
       <input type="radio" name="size" value="25">25
     </div>
     <label for="price">מחיר</label>
-    <input type="range" id="price" min="0" max="1000" step="10">
-  </div>`
+    <input type="range" id="price" min="0" max="10000000" step="10">
+    <span id="priceValue">500  NIS</span>
+  </div>
+  `
     }
 }
 routers.cart = {
@@ -210,7 +212,6 @@ routers.cart = {
         </div>
     `
 };
-
 function updateRoute() {
     const hash = window.location.hash.substring(1);
     const route = routers[hash] || routers.home;
@@ -228,15 +229,37 @@ function updateRoute() {
     if (hash === 'torah' || hash === 'mezuzah' || hash === 'tefillin' || hash === 'ketoret' || hash === 'meguila') {
         sidebarDiv.innerHTML = routers.sidebar.content;
         fetchProductsByType(hash);
+    
+        setTimeout(() => {
+            const radioButtons = document.querySelectorAll('.typeWriter input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('input', () => {
+                    console.log(radio.value);
+                });
+            });
+        }, 0);
     } else {
         sidebarDiv.innerHTML = '';
     }
-
+    
+    
     if (hash === 'addPost') {
         setTimeout(() => {
             showSubSelection();
         }, 0);
     }
+    setTimeout(() => {
+        const priceInput = document.getElementById('price');
+        const priceValue = document.getElementById('priceValue');
+
+        if (priceInput && priceValue) {
+            priceInput.addEventListener('input', () => {
+                priceValue.textContent = priceInput.value + " NIS";
+            });
+        }
+    }, 0);
+
 }
+
 window.addEventListener('hashchange', updateRoute);
 window.addEventListener('load', updateRoute);

@@ -1,10 +1,8 @@
 async function submitForm(event) {
     event.preventDefault();
-
-    // Récupérer l'utilisateur connecté
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
-        alert("Vous devez être connecté pour poster un produit");
+        alert("צריך הרשמה לשלוח הודעה");
         return;
     }
 
@@ -30,7 +28,7 @@ async function submitForm(event) {
             break;
     }
 
-    let tefilinType = productType === 'tefillin' ? document.getElementById('tefilinDiv').value : '';
+    let tefilinType = productType === 'tefillin' ? document.getElementById('tefilinType').value : '';
 
     if (!imageFile) {
         alert("Veuillez sélectionner une image.");
@@ -329,6 +327,7 @@ function showSubSelection() {
     if (!selection) return;
 
     const selectionValue = selection.value;
+    console.log('Selected value:', selectionValue); 
 
     const divMezzouza = document.getElementById('mezzouzaSizeDiv');
     const divMeguila = document.getElementById('meguilaSizeDiv');
@@ -336,11 +335,27 @@ function showSubSelection() {
     const divTefilin = document.getElementById('tefilinDiv');
     const divPitoum = document.getElementById('pitoumDiv');
 
-    if (divMezzouza) divMezzouza.style.display = selectionValue === 'mezuzah' ? 'block' : 'none';
-    if (divMeguila) divMeguila.style.display = selectionValue === 'meguila' ? 'block' : 'none';
-    if (divSeferTorah) divSeferTorah.style.display = selectionValue === 'torah' ? 'block' : 'none';
-    if (divTefilin) divTefilin.style.display = selectionValue === 'tefillin' ? 'block' : 'none';
-    if (divPitoum) divPitoum.style.display = selectionValue === 'ketoret' ? 'block' : 'none';
+    [divMezzouza, divMeguila, divSeferTorah, divTefilin, divPitoum].forEach(div => {
+        if (div) div.style.display = 'none';
+    });
+
+    switch(selectionValue) {
+        case 'mezuzah':
+            if (divMezzouza) divMezzouza.style.display = 'block';
+            break;
+        case 'meguila':
+            if (divMeguila) divMeguila.style.display = 'block';
+            break;
+        case 'torah':
+            if (divSeferTorah) divSeferTorah.style.display = 'block';
+            break;
+        case 'tefillin':
+            if (divTefilin) divTefilin.style.display = 'block';
+            break;
+        case 'ketoret':
+            if (divPitoum) divPitoum.style.display = 'block';
+            break;
+    }
 }
 
 function getHebrewProductType(type) {
@@ -372,6 +387,101 @@ function getHebrewTefilinType(type) {
     return types[type] || type;
 }
 
+function getSelectedFilters() {
+    return {
+        typewrite: document.querySelector('.typeWriter input[type="radio"]:checked')?.value,
+        size: document.querySelector('.size input[type="radio"]:checked')?.value,
+        price: document.getElementById('price')?.value
+    };
+}
+
+function filterProducts(products, filters) {
+    return products.filter(product => {
+        const typewriteMatch = !filters.typewrite || 
+            getHebrewTypewrite(product.typewrite) === filters.typewrite;
+        
+        const sizeMatch = !filters.size || 
+            product.size === filters.size;
+        
+        const priceMatch = !filters.price || 
+            parseInt(product.price) <= parseInt(filters.price);
+
+        return typewriteMatch && sizeMatch && priceMatch;
+    });
+}
+
+async function fetchProductsByType(productType) {
+    try {
+        const response = await fetch('https://67adf2f59e85da2f020bd372.mockapi.io/post');
+        if (!response.ok) {
+            throw new Error('Erreur réseau');
+        }
+
+        const products = await response.json();
+        const container = document.getElementById(`${productType}-container`);
+        if (!container) return;
+
+        function updateDisplay() {
+            const filters = getSelectedFilters();
+            console.log('Filtres actuels:', filters);
+
+            let filteredProducts = products.filter(p => p.productType === productType);
+            filteredProducts = filterProducts(filteredProducts, filters);
+
+            container.innerHTML = '';
+            if (filteredProducts.length === 0) {
+                container.innerHTML = '<p>Aucun produit ne correspond à vos critères</p>';
+            } else {
+                filteredProducts.forEach(product => displayProduct(product, container));
+            }
+        }
+
+        const typewriteRadios = document.querySelectorAll('.typeWriter input[type="radio"]');
+        const sizeRadios = document.querySelectorAll('.size input[type="radio"]');
+        const priceRange = document.getElementById('price');
+
+        typewriteRadios.forEach(radio => {
+            radio.addEventListener('change', updateDisplay);
+        });
+
+        sizeRadios.forEach(radio => {
+            radio.addEventListener('change', updateDisplay);
+        });
+
+        if (priceRange) {
+            priceRange.addEventListener('input', updateDisplay);
+        }
+
+        updateDisplay();
+
+    } catch (error) {
+        console.error('Erreur:', error);
+        const container = document.getElementById(`${productType}-container`);
+        if (container) {
+            container.innerHTML = '<p>Une erreur est survenue lors du chargement des produits</p>';
+        }
+    }
+}
+
+function resetFilters() {
+    const radios = document.querySelectorAll('.sideFilter input[type="radio"]');
+    radios.forEach(radio => radio.checked = false);
+    
+    const priceRange = document.getElementById('price');
+    if (priceRange) {
+        priceRange.value = 1000; 
+        const priceValue = document.getElementById('priceValue');
+        if (priceValue) {
+            priceValue.textContent = '1000 NIS';
+        }
+    }
+}
+
+const resetButton = `
+    <button onclick="resetFilters()" class="reset-filters">
+        Réinitialiser les filtres
+    </button>
+`;
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.hash.substring(1) === 'home' || window.location.hash === '') {
         fetchProductsByType();
