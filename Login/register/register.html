@@ -1,114 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="register.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+    <link rel="stylesheet" href="register.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="register-container">
-        <h1>Register</h1>
-        <form>
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your full name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" placeholder="Enter your E-Mail" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your Password" required>
-            </div>
-
-            <div class="form-group">
-                <label>Do you have a diploma?</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="diploma" value="yes"> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="diploma" value="no"> No
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Do you immerse in ritual bath?</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="ritual_bath" value="daily"> Every day
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="ritual_bath" value="weekly"> Once a week
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="ritual_bath" value="never"> Never
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Do you have a beard?</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="beard" value="yes"> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="beard" value="no"> No
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Phone usage</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="phone" value="hidden"> Hidden
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="phone" value="filtered"> With filter
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="phone" value="other"> Other
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter your phone number">
-            </div>
-
-            <div class="form-group">
-                <label>Torah Studies</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="torah_studies" value="full_time"> Full-time
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="torah_studies" value="part_time"> Part-time
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="torah_studies" value="other"> Other
-                    </label>
-                </div>
-            </div>
-
-            <button type="submit" class="btn">Register</button>
-        </form>
-        <div class="login-link">
-            <p>Already have an account? <a href="../login/log.html">Login</a></p>
+      <h1>טופס הרשמה</h1>
+      <form>
+        <div class="form-group">
+          <label for="name">שם מלא</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="הכנס את שמך ושם משפחתך"
+            required
+          />
         </div>
+
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="הכנס את כתובת המייל שלך"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">סיסמה</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="אנא בחר סיסמה"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>האם אתה מחזיק בתעודת הסמכה לסופרות?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="diploma" value="yes" /> כן
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="diploma" value="no" /> לא
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>האם אתה נוהג לטבול במקווה?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="ritual_bath" value="daily" /> בכל יום
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="ritual_bath" value="weekly" /> טבילת
+              עזרא
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="ritual_bath" value="never" /> לא באופן
+              קבוע
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>האם יש לך זקן?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="beard" value="yes" /> כן
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="beard" value="no" /> לא
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>פלאפון</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="phone" value="hidden" /> כשר
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="phone" value="filtered" /> מוגן
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="phone" value="other" /> אחר
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">מספר הפלאפון</label>
+          <input type="tel" id="phone" placeholder="הכנס את מספר הפלאפון" />
+        </div>
+
+        <div class="form-group">
+          <label>לימוד תורה</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="torah_studies" value="full_time" /> אברך
+              כולל יום שלם
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="torah_studies" value="part_time" /> אברך
+              כולל חצי יום
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="torah_studies" value="other" /> קובע
+              עיתים לתורה
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">הרשמה</button>
+      </form>
+      <div class="login-link">
+        <p>Aיש לך כבר חשבון? <a href="../login/log.html">כניסה למערכת</a></p>
+      </div>
     </div>
     <script src="register.js"></script>
-</body>
-
+  </body>
 </html>
