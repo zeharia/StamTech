@@ -5,18 +5,18 @@ document.querySelector(".btn").addEventListener("click", function (event) {
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
     if (!savedUser) {
-        alert("No user registered! Please sign up first.");
+        alert("המשתמש אינו רשום, אנא הרשם תחילה");
         return;
     }
 
-    const usernameInput = document.querySelector("input[placeholder='Username']").value;
-    const passwordInput = document.querySelector("input[placeholder='Password']").value;
+    const usernameInput = document.querySelector("input[placeholder='שם משתמש']").value;
+    const passwordInput = document.querySelector("input[placeholder='סיסמה']").value;
 
     if (usernameInput.toLowerCase() === savedUser.name.toLowerCase() && passwordInput === savedUser.password) {
-        alert("Login successful! Welcome, " + savedUser.name);
+        alert("ברוך הבא, " + savedUser.name);
         window.location.href = "../../StamTech/index.html";
         addPostBtn.style.display='block';
     } else {
-        alert("User not found! Please check your details.");
+        alert("המשתמש לא נמצא, אנא בדוק את הפרטים שהזנת");
     }
 });
